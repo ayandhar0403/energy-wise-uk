@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index.tsx";
+import Auth from "./pages/Auth.tsx";
 import HouseholdProfile from "./pages/HouseholdProfile.tsx";
 import BillUpload from "./pages/BillUpload.tsx";
 import Settings from "./pages/Settings.tsx";
@@ -22,6 +23,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/auth" element={<Auth />} />
             <Route path="/profile" element={<HouseholdProfile />} />
             <Route path="/upload-bill" element={<BillUpload />} />
             <Route path="/bills" element={<BillHistory />} />

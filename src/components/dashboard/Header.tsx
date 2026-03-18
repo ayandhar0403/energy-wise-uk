@@ -1,10 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Bell, FileText, History, Settings, User, Zap } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Bell, FileText, History, LogIn, LogOut, Settings, User, Zap } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+
   return (
     <header className="flex items-center justify-between pb-6">
       <div className="flex items-center gap-3">
@@ -35,12 +45,42 @@ const Header = () => {
           <Bell className="h-4 w-4" />
           <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-destructive" />
         </Button>
-        <Button variant="ghost" size="icon" onClick={() => navigate("/profile")}>
-          <User className="h-4 w-4" />
-        </Button>
-        <Button variant="ghost" size="icon" onClick={() => navigate("/settings")}>
-          <Settings className="h-4 w-4" />
-        </Button>
+
+        {user ? (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <User className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <div className="px-2 py-1.5">
+                <p className="text-xs text-muted-foreground truncate">{user.email}</p>
+              </div>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => navigate("/profile")}>
+                <User className="h-4 w-4 mr-2" /> Profile
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/settings")}>
+                <Settings className="h-4 w-4 mr-2" /> Settings
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={signOut}>
+                <LogOut className="h-4 w-4 mr-2" /> Log out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : (
+          <Button
+            variant="default"
+            size="sm"
+            className="gap-1.5 font-semibold"
+            onClick={() => navigate("/auth")}
+          >
+            <LogIn className="h-4 w-4" />
+            Log in
+          </Button>
+        )}
       </div>
     </header>
   );
