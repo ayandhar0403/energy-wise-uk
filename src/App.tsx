@@ -8,6 +8,7 @@ import Index from "./pages/Index.tsx";
 import HouseholdProfile from "./pages/HouseholdProfile.tsx";
 import BillUpload from "./pages/BillUpload.tsx";
 import Settings from "./pages/Settings.tsx";
+import BillHistory from "./pages/BillHistory.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
