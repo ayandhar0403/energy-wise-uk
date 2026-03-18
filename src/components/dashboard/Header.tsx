@@ -25,6 +25,9 @@ const Header = () => {
           <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-glow" />
           Ofgem Cap: 24.5p/kWh
         </Badge>
+        <Button variant="ghost" size="icon" onClick={() => navigate("/upload-bill")} className="relative">
+          <FileText className="h-4 w-4" />
+        </Button>
         <Button variant="ghost" size="icon" className="relative">
           <Bell className="h-4 w-4" />
           <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-destructive" />
