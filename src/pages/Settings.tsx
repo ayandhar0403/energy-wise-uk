@@ -42,8 +42,6 @@ const Settings = () => {
       const parsed = JSON.parse(savedProfile);
       setProfile((prev) => ({ ...prev, ...parsed }));
     }
-    const savedNotifs = localStorage.getItem("notificationPrefs");
-    if (savedNotifs) setNotifications(JSON.parse(savedNotifs));
     const savedPrefs = localStorage.getItem("unitPrefs");
     if (savedPrefs) setPreferences(JSON.parse(savedPrefs));
   }, []);
