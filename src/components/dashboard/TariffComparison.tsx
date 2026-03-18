@@ -12,6 +12,7 @@ const tariffs = [
     rating: 4.6,
     badge: "Best Value",
     features: ["Variable rate", "Smart meter required", "100% green"],
+    switchUrl: "https://octopus.energy/agile/",
   },
   {
     provider: "British Gas",
@@ -21,6 +22,7 @@ const tariffs = [
     rating: 3.9,
     badge: null,
     features: ["Fixed until Mar 2026", "No exit fees", "Dual fuel"],
+    switchUrl: "https://www.britishgas.co.uk/energy/gas-and-electricity.html",
   },
   {
     provider: "EDF Energy",
@@ -30,6 +32,7 @@ const tariffs = [
     rating: 4.1,
     badge: null,
     features: ["Online management", "1yr fixed", "Green option"],
+    switchUrl: "https://www.edfenergy.com/gas-electricity",
   },
 ];
 
