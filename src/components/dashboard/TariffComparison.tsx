@@ -10,7 +10,7 @@ const tariffs = [
     monthlyCost: "£135",
     annualSaving: "£87",
     rating: 3.9,
-    badge: null,
+    badge: "Best Value",
     features: ["Fixed until Mar 2026", "No exit fees", "Dual fuel"],
     switchUrl: "https://www.britishgas.co.uk/energy/gas-and-electricity.html",
   },
