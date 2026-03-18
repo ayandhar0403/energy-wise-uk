@@ -1,16 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/dashboard/Header";
+import EnergyOverview from "@/components/dashboard/EnergyOverview";
+import UsageChart from "@/components/dashboard/UsageChart";
+import TariffComparison from "@/components/dashboard/TariffComparison";
+import SavingsTips from "@/components/dashboard/SavingsTips";
+import CarbonFootprint from "@/components/dashboard/CarbonFootprint";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <Header />
+        <EnergyOverview />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+          <div className="lg:col-span-2">
+            <UsageChart />
+          </div>
+          <div>
+            <TariffComparison />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+          <SavingsTips />
+          <CarbonFootprint />
+        </div>
+        <footer className="mt-8 pb-4 text-center">
+          <p className="text-xs text-muted-foreground">
+            Data sourced from Ofgem & Energy Saving Trust · Prices as of March 2026
+          </p>
+        </footer>
+      </div>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
