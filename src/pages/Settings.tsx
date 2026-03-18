@@ -5,12 +5,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Zap, User, Bell, Palette, SlidersHorizontal } from "lucide-react";
 import { toast } from "sonner";
+import NotificationsTab from "@/components/settings/NotificationsTab";
 
 const Settings = () => {
   const navigate = useNavigate();
@@ -26,16 +26,6 @@ const Settings = () => {
     provider: "",
   });
 
-  // Notification preferences
-  const [notifications, setNotifications] = useState({
-    budgetAlerts: true,
-    weeklyReport: true,
-    savingsTips: false,
-    tariffChanges: true,
-    usageSpikes: true,
-    emailNotifications: true,
-    pushNotifications: false,
-  });
 
   // Units & preferences
   const [preferences, setPreferences] = useState({
@@ -52,8 +42,6 @@ const Settings = () => {
       const parsed = JSON.parse(savedProfile);
       setProfile((prev) => ({ ...prev, ...parsed }));
     }
-    const savedNotifs = localStorage.getItem("notificationPrefs");
-    if (savedNotifs) setNotifications(JSON.parse(savedNotifs));
     const savedPrefs = localStorage.getItem("unitPrefs");
     if (savedPrefs) setPreferences(JSON.parse(savedPrefs));
   }, []);
@@ -63,10 +51,6 @@ const Settings = () => {
     toast.success("Profile updated successfully");
   };
 
-  const saveNotifications = () => {
-    localStorage.setItem("notificationPrefs", JSON.stringify(notifications));
-    toast.success("Notification preferences saved");
-  };
 
   const savePreferences = () => {
     localStorage.setItem("unitPrefs", JSON.stringify(preferences));
@@ -223,79 +207,7 @@ const Settings = () => {
 
           {/* Notifications Tab */}
           <TabsContent value="notifications">
-            <Card className="border-none shadow-md">
-              <CardHeader>
-                <CardTitle className="font-display">Notification Preferences</CardTitle>
-                <CardDescription>Choose what alerts you want to receive</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Energy Alerts</h3>
-                  {[
-                    { key: "budgetAlerts" as const, label: "Budget Alerts", desc: "Get notified when approaching your monthly energy budget" },
-                    { key: "usageSpikes" as const, label: "Usage Spikes", desc: "Alert when daily usage is significantly above average" },
-                    { key: "tariffChanges" as const, label: "Tariff Changes", desc: "Notify when Ofgem price cap or your tariff changes" },
-                  ].map((item) => (
-                    <div key={item.key} className="flex items-center justify-between rounded-lg border border-border p-4">
-                      <div className="space-y-0.5">
-                        <Label className="text-sm font-medium">{item.label}</Label>
-                        <p className="text-xs text-muted-foreground">{item.desc}</p>
-                      </div>
-                      <Switch
-                        checked={notifications[item.key]}
-                        onCheckedChange={(v) => setNotifications({ ...notifications, [item.key]: v })}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                <Separator />
-
-                <div className="space-y-4">
-                  <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Reports & Tips</h3>
-                  {[
-                    { key: "weeklyReport" as const, label: "Weekly Summary", desc: "Receive a weekly email with your energy usage breakdown" },
-                    { key: "savingsTips" as const, label: "Savings Tips", desc: "Personalised tips based on your usage patterns" },
-                  ].map((item) => (
-                    <div key={item.key} className="flex items-center justify-between rounded-lg border border-border p-4">
-                      <div className="space-y-0.5">
-                        <Label className="text-sm font-medium">{item.label}</Label>
-                        <p className="text-xs text-muted-foreground">{item.desc}</p>
-                      </div>
-                      <Switch
-                        checked={notifications[item.key]}
-                        onCheckedChange={(v) => setNotifications({ ...notifications, [item.key]: v })}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                <Separator />
-
-                <div className="space-y-4">
-                  <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Delivery Channels</h3>
-                  {[
-                    { key: "emailNotifications" as const, label: "Email Notifications", desc: "Receive alerts via email" },
-                    { key: "pushNotifications" as const, label: "Push Notifications", desc: "Browser push notifications (requires permission)" },
-                  ].map((item) => (
-                    <div key={item.key} className="flex items-center justify-between rounded-lg border border-border p-4">
-                      <div className="space-y-0.5">
-                        <Label className="text-sm font-medium">{item.label}</Label>
-                        <p className="text-xs text-muted-foreground">{item.desc}</p>
-                      </div>
-                      <Switch
-                        checked={notifications[item.key]}
-                        onCheckedChange={(v) => setNotifications({ ...notifications, [item.key]: v })}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                <Button onClick={saveNotifications} className="w-full sm:w-auto">
-                  Save Preferences
-                </Button>
-              </CardContent>
-            </Card>
+            <NotificationsTab />
           </TabsContent>
 
           {/* Appearance Tab */}
