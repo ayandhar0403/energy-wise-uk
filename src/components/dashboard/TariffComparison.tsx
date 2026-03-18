@@ -5,22 +5,12 @@ import { ArrowRight, Star } from "lucide-react";
 
 const tariffs = [
   {
-    provider: "Octopus Energy",
-    plan: "Agile Octopus",
-    monthlyCost: "£128",
-    annualSaving: "£171",
-    rating: 4.6,
-    badge: "Best Value",
-    features: ["Variable rate", "Smart meter required", "100% green"],
-    switchUrl: "https://www.octopusenergy.co.uk/tariffs/agile-octopus",
-  },
-  {
     provider: "British Gas",
     plan: "Fixed Price 2026",
     monthlyCost: "£135",
     annualSaving: "£87",
     rating: 3.9,
-    badge: null,
+    badge: "Best Value",
     features: ["Fixed until Mar 2026", "No exit fees", "Dual fuel"],
     switchUrl: "https://www.britishgas.co.uk/energy/gas-and-electricity.html",
   },
