@@ -12,7 +12,7 @@ const tariffs = [
     rating: 4.6,
     badge: "Best Value",
     features: ["Variable rate", "Smart meter required", "100% green"],
-    switchUrl: "https://octopus.energy/agile/",
+    switchUrl: "https://www.octopusenergy.co.uk/tariffs/agile-octopus",
   },
   {
     provider: "British Gas",
