@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Bell, FileText, Settings, User, Zap } from "lucide-react";
+import { Bell, FileText, History, Settings, User, Zap } from "lucide-react";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -27,6 +27,9 @@ const Header = () => {
         </Badge>
         <Button variant="ghost" size="icon" onClick={() => navigate("/upload-bill")} className="relative">
           <FileText className="h-4 w-4" />
+        </Button>
+        <Button variant="ghost" size="icon" onClick={() => navigate("/bills")} className="relative">
+          <History className="h-4 w-4" />
         </Button>
         <Button variant="ghost" size="icon" className="relative">
           <Bell className="h-4 w-4" />

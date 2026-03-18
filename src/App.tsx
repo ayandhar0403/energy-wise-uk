@@ -8,6 +8,7 @@ import Index from "./pages/Index.tsx";
 import HouseholdProfile from "./pages/HouseholdProfile.tsx";
 import BillUpload from "./pages/BillUpload.tsx";
 import Settings from "./pages/Settings.tsx";
+import BillHistory from "./pages/BillHistory.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/profile" element={<HouseholdProfile />} />
             <Route path="/upload-bill" element={<BillUpload />} />
+            <Route path="/bills" element={<BillHistory />} />
             <Route path="/settings" element={<Settings />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

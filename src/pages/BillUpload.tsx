@@ -34,6 +34,7 @@ const BillUpload = () => {
   const [preview, setPreview] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const [billData, setBillData] = useState<BillData | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const processFile = useCallback(async (file: File) => {
     if (!file.type.startsWith("image/") && file.type !== "application/pdf") {
@@ -316,12 +317,38 @@ const BillUpload = () => {
             </Card>
 
             <div className="flex gap-3">
-              <Button className="flex-1" onClick={() => {
-                localStorage.setItem("lastBillData", JSON.stringify(billData));
-                toast.success("Bill data saved to your dashboard");
-                navigate("/");
+              <Button className="flex-1" disabled={isSaving} onClick={async () => {
+                setIsSaving(true);
+                try {
+                  const { error } = await supabase.from("bills").insert({
+                    provider: billData.provider,
+                    account_number: billData.account_number,
+                    bill_date: billData.bill_date,
+                    period_start: billData.period_start,
+                    period_end: billData.period_end,
+                    total_amount: billData.total_amount,
+                    electricity_kwh: billData.electricity_kwh,
+                    electricity_cost: billData.electricity_cost,
+                    gas_kwh: billData.gas_kwh,
+                    gas_cost: billData.gas_cost,
+                    standing_charge_electricity: billData.standing_charge_electricity,
+                    standing_charge_gas: billData.standing_charge_gas,
+                    unit_rate_electricity: billData.unit_rate_electricity,
+                    unit_rate_gas: billData.unit_rate_gas,
+                    tariff_name: billData.tariff_name,
+                    payment_method: billData.payment_method,
+                  });
+                  if (error) throw error;
+                  toast.success("Bill saved to history!");
+                  navigate("/bills");
+                } catch (err) {
+                  console.error(err);
+                  toast.error("Failed to save bill");
+                } finally {
+                  setIsSaving(false);
+                }
               }}>
-                Save to Dashboard
+                {isSaving ? <><Loader2 className="h-4 w-4 mr-1 animate-spin" /> Saving…</> : "Save to History"}
               </Button>
               <Button variant="outline" onClick={() => {
                 setPreview(null);

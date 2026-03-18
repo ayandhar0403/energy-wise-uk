@@ -14,7 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bills: {
+        Row: {
+          account_number: string | null
+          bill_date: string | null
+          created_at: string
+          electricity_cost: number | null
+          electricity_kwh: number | null
+          gas_cost: number | null
+          gas_kwh: number | null
+          id: string
+          payment_method: string | null
+          period_end: string | null
+          period_start: string | null
+          provider: string | null
+          standing_charge_electricity: number | null
+          standing_charge_gas: number | null
+          tariff_name: string | null
+          total_amount: number | null
+          unit_rate_electricity: number | null
+          unit_rate_gas: number | null
+        }
+        Insert: {
+          account_number?: string | null
+          bill_date?: string | null
+          created_at?: string
+          electricity_cost?: number | null
+          electricity_kwh?: number | null
+          gas_cost?: number | null
+          gas_kwh?: number | null
+          id?: string
+          payment_method?: string | null
+          period_end?: string | null
+          period_start?: string | null
+          provider?: string | null
+          standing_charge_electricity?: number | null
+          standing_charge_gas?: number | null
+          tariff_name?: string | null
+          total_amount?: number | null
+          unit_rate_electricity?: number | null
+          unit_rate_gas?: number | null
+        }
+        Update: {
+          account_number?: string | null
+          bill_date?: string | null
+          created_at?: string
+          electricity_cost?: number | null
+          electricity_kwh?: number | null
+          gas_cost?: number | null
+          gas_kwh?: number | null
+          id?: string
+          payment_method?: string | null
+          period_end?: string | null
+          period_start?: string | null
+          provider?: string | null
+          standing_charge_electricity?: number | null
+          standing_charge_gas?: number | null
+          tariff_name?: string | null
+          total_amount?: number | null
+          unit_rate_electricity?: number | null
+          unit_rate_gas?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
