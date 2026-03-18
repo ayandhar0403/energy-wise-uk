@@ -1,1 +1,4 @@
 project_id = "yvwoxfnmsnizicjcseoa"
+
+[functions.extract-bill]
+verify_jwt = false
