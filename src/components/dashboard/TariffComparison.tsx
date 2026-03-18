@@ -22,7 +22,7 @@ const tariffs = [
     rating: 4.1,
     badge: null,
     features: ["Online management", "1yr fixed", "Green option"],
-    switchUrl: "https://www.edfenergy.com/gas-electricity",
+    switchUrl: "https://www.edfenergy.com/",
   },
 ];
 
