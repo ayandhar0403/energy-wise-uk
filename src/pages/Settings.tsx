@@ -53,10 +53,6 @@ const Settings = () => {
     toast.success("Profile updated successfully");
   };
 
-  const saveNotifications = () => {
-    localStorage.setItem("notificationPrefs", JSON.stringify(notifications));
-    toast.success("Notification preferences saved");
-  };
 
   const savePreferences = () => {
     localStorage.setItem("unitPrefs", JSON.stringify(preferences));
