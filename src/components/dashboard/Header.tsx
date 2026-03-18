@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Bell, Settings, User, Zap } from "lucide-react";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="flex items-center justify-between pb-6">
       <div className="flex items-center gap-3">
