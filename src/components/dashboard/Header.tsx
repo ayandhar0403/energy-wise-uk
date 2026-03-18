@@ -28,6 +28,9 @@ const Header = () => {
         <Button variant="ghost" size="icon" onClick={() => navigate("/upload-bill")} className="relative">
           <FileText className="h-4 w-4" />
         </Button>
+        <Button variant="ghost" size="icon" onClick={() => navigate("/bills")} className="relative">
+          <History className="h-4 w-4" />
+        </Button>
         <Button variant="ghost" size="icon" className="relative">
           <Bell className="h-4 w-4" />
           <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-destructive" />

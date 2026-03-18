@@ -34,6 +34,7 @@ const BillUpload = () => {
   const [preview, setPreview] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const [billData, setBillData] = useState<BillData | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const processFile = useCallback(async (file: File) => {
     if (!file.type.startsWith("image/") && file.type !== "application/pdf") {

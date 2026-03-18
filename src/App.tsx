@@ -24,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/profile" element={<HouseholdProfile />} />
             <Route path="/upload-bill" element={<BillUpload />} />
+            <Route path="/bills" element={<BillHistory />} />
             <Route path="/settings" element={<Settings />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
