@@ -1,4 +1,5 @@
 import Header from "@/components/dashboard/Header";
+import PostcodeHero from "@/components/dashboard/PostcodeHero";
 import EnergyOverview from "@/components/dashboard/EnergyOverview";
 import UsageChart from "@/components/dashboard/UsageChart";
 import TariffComparison from "@/components/dashboard/TariffComparison";
@@ -14,6 +15,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Header />
+        <PostcodeHero />
         <EnergyOverview />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
           <div className="lg:col-span-2">
