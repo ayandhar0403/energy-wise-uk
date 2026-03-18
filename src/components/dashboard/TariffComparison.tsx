@@ -84,8 +84,11 @@ const TariffComparison = () => {
               variant="ghost"
               size="sm"
               className="w-full mt-3 text-primary group-hover:bg-primary/5"
+              asChild
             >
-              Compare & Switch <ArrowRight className="h-3 w-3 ml-1" />
+              <a href={tariff.switchUrl} target="_blank" rel="noopener noreferrer">
+                Compare & Switch <ArrowRight className="h-3 w-3 ml-1" />
+              </a>
             </Button>
           </div>
         ))}
