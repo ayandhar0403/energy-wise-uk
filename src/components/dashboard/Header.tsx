@@ -35,7 +35,7 @@ const Header = () => {
         <Button variant="ghost" size="icon" onClick={() => navigate("/profile")}>
           <User className="h-4 w-4" />
         </Button>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" onClick={() => navigate("/settings")}>
           <Settings className="h-4 w-4" />
         </Button>
       </div>
