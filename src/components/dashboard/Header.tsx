@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Bell, FileText, Settings, User, Zap } from "lucide-react";
+import { Bell, FileText, History, Settings, User, Zap } from "lucide-react";
 
 const Header = () => {
   const navigate = useNavigate();
