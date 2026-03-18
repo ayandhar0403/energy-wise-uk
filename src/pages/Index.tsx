@@ -4,6 +4,8 @@ import UsageChart from "@/components/dashboard/UsageChart";
 import TariffComparison from "@/components/dashboard/TariffComparison";
 import SavingsTips from "@/components/dashboard/SavingsTips";
 import CarbonFootprint from "@/components/dashboard/CarbonFootprint";
+import BudgetTracker from "@/components/dashboard/BudgetTracker";
+import EPCRating from "@/components/dashboard/EPCRating";
 
 const Index = () => {
   return (
@@ -15,13 +17,15 @@ const Index = () => {
           <div className="lg:col-span-2">
             <UsageChart />
           </div>
-          <div>
+          <div className="space-y-6">
+            <BudgetTracker />
             <TariffComparison />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
           <SavingsTips />
           <CarbonFootprint />
+          <EPCRating />
         </div>
         <footer className="mt-8 pb-4 text-center">
           <p className="text-xs text-muted-foreground">
