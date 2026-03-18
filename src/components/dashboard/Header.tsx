@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Bell, Settings, Zap } from "lucide-react";
+import { Bell, Settings, User, Zap } from "lucide-react";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="flex items-center justify-between pb-6">
       <div className="flex items-center gap-3">
@@ -26,6 +28,9 @@ const Header = () => {
         <Button variant="ghost" size="icon" className="relative">
           <Bell className="h-4 w-4" />
           <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-destructive" />
+        </Button>
+        <Button variant="ghost" size="icon" onClick={() => navigate("/profile")}>
+          <User className="h-4 w-4" />
         </Button>
         <Button variant="ghost" size="icon">
           <Settings className="h-4 w-4" />
