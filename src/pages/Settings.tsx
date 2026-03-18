@@ -26,16 +26,6 @@ const Settings = () => {
     provider: "",
   });
 
-  // Notification preferences
-  const [notifications, setNotifications] = useState({
-    budgetAlerts: true,
-    weeklyReport: true,
-    savingsTips: false,
-    tariffChanges: true,
-    usageSpikes: true,
-    emailNotifications: true,
-    pushNotifications: false,
-  });
 
   // Units & preferences
   const [preferences, setPreferences] = useState({
