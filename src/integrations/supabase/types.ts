@@ -34,6 +34,7 @@ export type Database = {
           total_amount: number | null
           unit_rate_electricity: number | null
           unit_rate_gas: number | null
+          user_id: string | null
         }
         Insert: {
           account_number?: string | null
@@ -54,6 +55,7 @@ export type Database = {
           total_amount?: number | null
           unit_rate_electricity?: number | null
           unit_rate_gas?: number | null
+          user_id?: string | null
         }
         Update: {
           account_number?: string | null
@@ -74,6 +76,34 @@ export type Database = {
           total_amount?: number | null
           unit_rate_electricity?: number | null
           unit_rate_gas?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          postcode: string | null
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id: string
+          postcode?: string | null
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          postcode?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
