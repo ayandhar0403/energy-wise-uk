@@ -6,6 +6,8 @@ import SavingsTips from "@/components/dashboard/SavingsTips";
 import CarbonFootprint from "@/components/dashboard/CarbonFootprint";
 import BudgetTracker from "@/components/dashboard/BudgetTracker";
 import EPCRating from "@/components/dashboard/EPCRating";
+import EnergyFAQ from "@/components/dashboard/EnergyFAQ";
+import HowToSwitch from "@/components/dashboard/HowToSwitch";
 
 const Index = () => {
   return (
@@ -26,6 +28,12 @@ const Index = () => {
           <SavingsTips />
           <CarbonFootprint />
           <EPCRating />
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+          <div className="lg:col-span-2">
+            <EnergyFAQ />
+          </div>
+          <HowToSwitch />
         </div>
         <footer className="mt-8 pb-4 text-center">
           <p className="text-xs text-muted-foreground">
